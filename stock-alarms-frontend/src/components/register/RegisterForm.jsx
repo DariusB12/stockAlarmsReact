@@ -1,7 +1,13 @@
 import { useState } from "react";
-import { register } from "../api/authService.jsx";
+import { register } from "../../api/authService.jsx";
+import { useNavigate } from 'react-router-dom';
+import MessageBox from "../utils/MessageBox.jsx";
 
 export default function RegisterForm() {
+    const handleLogInPage = () =>{
+        navigate("/logIn");
+    }
+    
     const [userData, setUserData] = useState({
         confirmPassword: "",
         password: "",
@@ -10,6 +16,9 @@ export default function RegisterForm() {
         lastName: "",
     });
     const [error, setError] = useState("");
+    const [showMessage, setShowMessage] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setUserData({
@@ -24,10 +33,17 @@ export default function RegisterForm() {
             await register(userData);
         } catch (err) {
             setError(err.message);
+            setShowMessage(true);
         }
     };
 
+    const handleOnCloseMsgBox = () => {
+        setShowMessage(false);
+    }
+
+
     return (
+        <>
         <form onSubmit={handleSubmit}>
         <div >
                 <label>First Name:</label>
@@ -74,8 +90,13 @@ export default function RegisterForm() {
                     onChange={handleChange}
                 />
             </div>
-            {error && <p>{error}</p>}
+            {/* conditional rendering*/}
+            {showMessage && <MessageBox message={error} success={false} onClose={handleOnCloseMsgBox} />}
             <button type="submit">Register</button>
         </form>
+        <div>
+            <button onClick={handleLogInPage}>Already have an account? Log In</button>
+        </div>
+        </>
     );
 }
