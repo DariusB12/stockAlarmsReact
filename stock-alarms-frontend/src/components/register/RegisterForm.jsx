@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { register } from "../../api/authService.jsx";
 import { useNavigate } from 'react-router-dom';
-import MessageBox from "../utils/MessageBox.jsx";
+import MessageBox from "../utils/messageBox/MessageBox.jsx";
+import LoadingBox from "../utils/loadingBox/LoadingBox.jsx";
 
 export default function RegisterForm() {
     const handleLogInPage = () =>{
@@ -17,6 +18,7 @@ export default function RegisterForm() {
     });
     const [error, setError] = useState("");
     const [showMessage, setShowMessage] = useState(false);
+    const [showLoading, setShowLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -28,10 +30,13 @@ export default function RegisterForm() {
     };
 
     const handleSubmit = async (e) => {
+        setShowLoading(true);
         e.preventDefault();
         try {
             await register(userData);
+            setShowLoading(false);
         } catch (err) {
+            setShowLoading(false);
             setError(err.message);
             setShowMessage(true);
         }
@@ -91,6 +96,7 @@ export default function RegisterForm() {
                 />
             </div>
             {/* conditional rendering*/}
+            {showLoading && <LoadingBox></LoadingBox>}
             {showMessage && <MessageBox message={error} success={false} onClose={handleOnCloseMsgBox} />}
             <button type="submit">Register</button>
         </form>
