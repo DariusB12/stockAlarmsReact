@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { register } from "../../api/authService.jsx";
+import { register } from "../../api/authentication/authService.jsx";
 import { useNavigate } from 'react-router-dom';
 import MessageBox from "../utils/messageBox/MessageBox.jsx";
 import LoadingBox from "../utils/loadingBox/LoadingBox.jsx";
@@ -16,9 +16,11 @@ export default function RegisterForm() {
         firstName: "",
         lastName: "",
     });
-    const [error, setError] = useState("");
+    const [message, setMessage] = useState("");
+    const [success, setSuccess] = useState("");
     const [showMessage, setShowMessage] = useState(false);
     const [showLoading, setShowLoading] = useState(false);
+
 
     const navigate = useNavigate();
 
@@ -34,10 +36,15 @@ export default function RegisterForm() {
         e.preventDefault();
         try {
             await register(userData);
+            setMessage("Registered with Success! Log In into your new account");
+            setSuccess(true);
+            setShowMessage(true);
             setShowLoading(false);
         } catch (err) {
             setShowLoading(false);
-            setError(err.message);
+
+            setMessage(err.message);
+            setSuccess(false);
             setShowMessage(true);
         }
     };
@@ -50,8 +57,8 @@ export default function RegisterForm() {
     return (
         <>
         <form onSubmit={handleSubmit}>
-        <div >
-                <label>First Name:</label>
+            <div >
+                <label className="registerFormLabel">First Name:</label>
                 <input
                     type="text"
                     name="firstName"
@@ -60,7 +67,7 @@ export default function RegisterForm() {
                 />
             </div>
             <div>
-                <label>Last Name:</label>
+                <label className="registerFormLabel">Last Name:</label>
                 <input
                     type="text"
                     name="lastName"
@@ -69,7 +76,7 @@ export default function RegisterForm() {
                 />
             </div>
             <div>
-                <label>Email:</label>
+                <label className="registerFormLabel">Email:</label>
                 <input
                     type="email"
                     name="email"
@@ -78,7 +85,7 @@ export default function RegisterForm() {
                 />
             </div>
             <div>
-                <label>Password:</label>
+                <label className="registerFormLabel">Password:</label>
                 <input
                     type="password"
                     name="password"
@@ -87,7 +94,7 @@ export default function RegisterForm() {
                 />
             </div>
             <div>
-                <label>Confirm Password:</label>
+                <label className="registerFormLabel">Confirm Password:</label>
                 <input
                     type="password"
                     name="confirmPassword"
@@ -97,7 +104,7 @@ export default function RegisterForm() {
             </div>
             {/* conditional rendering*/}
             {showLoading && <LoadingBox></LoadingBox>}
-            {showMessage && <MessageBox message={error} success={false} onClose={handleOnCloseMsgBox} />}
+            {showMessage && <MessageBox message={message} success={success} onClose={handleOnCloseMsgBox} />}
             <button type="submit">Register</button>
         </form>
         <div>

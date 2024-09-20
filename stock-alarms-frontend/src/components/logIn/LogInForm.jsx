@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { login } from "../../api/authService.jsx";
+import { login } from "../../api/authentication/authService.jsx";
 import { useNavigate } from 'react-router-dom';
 import MessageBox from "../utils/messageBox/MessageBox.jsx";
 import LoadingBox from "../utils/loadingBox/LoadingBox.jsx";
@@ -12,7 +12,8 @@ export default function LogInForm() {
     });
     const navigate = useNavigate();
 
-    const [error, setError] = useState("");
+    const [message, setMessage] = useState("");
+    const [success, setSuccess] = useState("");
     const [showMessage, setShowMessage] = useState(false);
     const [showLoading, setShowLoading] = useState(false);
 
@@ -32,7 +33,9 @@ export default function LogInForm() {
             setShowLoading(false);
         } catch (err) {
             setShowLoading(false);
-            setError(err.message);
+
+            setMessage(err.message);
+            setSuccess(false);
             setShowMessage(true);
         }
     };
@@ -47,7 +50,7 @@ export default function LogInForm() {
         <>
         <form onSubmit={handleSubmit}>
         <div >
-                <label>Email:</label>
+                <label className="logInFormLabel">Email:</label>
                 <input
                     type="text"
                     name="email"
@@ -56,7 +59,7 @@ export default function LogInForm() {
                 />
             </div>
             <div>
-                <label>Password:</label>
+                <label className="logInFormLabel">Password:</label>
                 <input
                     type="password"
                     name="password"
@@ -66,7 +69,7 @@ export default function LogInForm() {
             </div>
             {/* conditional rendering*/}
             {showLoading && <LoadingBox></LoadingBox>}
-            {showMessage && <MessageBox message={error} success={false} onClose={handleOnCloseMsgBox} />}
+            {showMessage && <MessageBox message={message} success={success} onClose={handleOnCloseMsgBox} />}
             <button type="submit">LogIn</button>
         </form>
         <div>

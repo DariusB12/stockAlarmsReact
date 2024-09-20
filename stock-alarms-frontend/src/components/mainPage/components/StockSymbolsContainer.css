@@ -1,0 +1,52 @@
+.stockSymbolsContainer{
+    width: 135px;
+}
+.listSymbolsContainer{
+    display: block;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    height: 400px;
+    width: 135px;
+
+    overflow-y: auto;
+}
+.listSymbolsContainer::-webkit-scrollbar {
+    background: rgb(216, 216, 216); 
+    width: 10px;
+    border-radius: 10px;
+}
+.listSymbolsContainer::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: rgb(172, 172, 172);
+}
+.listSymbolsItem:nth-child(even){
+    background-color: rgb(226, 226, 226);
+}
+.listSymbolsItem:hover{
+    background-color: rgb(181, 181, 181);
+}
+
+.listSymbols{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.symbolsSearchBox{
+    width: 78px;
+    height: 25px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+}
+.searchBarButtonSearchContainer{
+    display: inline;
+}
+.buttonSearch{
+    height: 29px;
+    width: 50px;
+    margin: 0.5px;
+    padding: 0;
+    border: 1px solid;
+    border-radius: 5px;
+}
