@@ -1,0 +1,45 @@
+.addAlarmInputMain{
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-around;
+    gap: 5px;
+    border-radius: 5px;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 40px;
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.inputTargetMain{
+    display: flex;
+    align-items: center;
+}
+.inputTarget{
+    height: 20px;
+    width: 70px;
+}
+.addAlarmButton{
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+}
+#addAalarmBtnCancel{
+    background-color: rgb(181, 0, 0);
+}
+#addAalarmBtnCancel:hover{
+    background-color: rgb(218, 0, 0);
+}
+#addAalarmBtnAdd{
+    background-color: rgb(16, 157, 0);
+}
+#addAalarmBtnAdd:hover{
+    background-color: rgb(19, 193, 0);
+}
+.addAlarmSymbolContainer{
+    display: flex;
+}
+.addAlarmCurrentPriceContainer{
+    display: flex;
+}

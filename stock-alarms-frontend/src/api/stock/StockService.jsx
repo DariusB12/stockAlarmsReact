@@ -13,3 +13,15 @@ export const getAllStockSymbols = async (username,password) => {
       });
       return response.data.stockSymbols;
   };
+
+// returns latest stock data of the specified stock symbol
+export const getStockData = async (username,password,symbol) => {
+  const response = await axios.get(`${API_AUTH}`+"/"+symbol, {
+    auth: {
+      username: username,
+      password: password
+    }
+  });
+  return response.data.stock;
+};
+

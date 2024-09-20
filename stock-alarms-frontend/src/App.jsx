@@ -6,6 +6,7 @@ import './components/logIn/LogInForm.css'
 import './components/mainPage/components/stockSymbolsContainer/StockSymbolsContainer.css'
 import './components/mainPage/components/stockInfoContainer/StockInfoContainer.css'
 import './components/mainPage/MainPage.css'
+import './components/mainPage/components/addAlarmInput/AddAlarmInput.css'
 
 import LogInForm from './components/logIn/LogInForm'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
