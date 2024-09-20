@@ -3,7 +3,9 @@ import './components/utils/messageBox/MessageBox.css'
 import './components/utils/loadingBox/LoadingBox.css'
 import './components/register/RegisterForm.css'
 import './components/logIn/LogInForm.css'
-import './components/mainPage/components/StockSymbolsContainer.css'
+import './components/mainPage/components/stockSymbolsContainer/StockSymbolsContainer.css'
+import './components/mainPage/components/stockInfoContainer/StockInfoContainer.css'
+import './components/mainPage/MainPage.css'
 
 import LogInForm from './components/logIn/LogInForm'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import List from "../../utils/list/List";
-import Button from "../../utils/button/Button";
+import List from "../../../utils/list/List";
+import Button from "../../../utils/button/Button";
 
 export default function StockSymbolsContainer({items}){
     const [filteredItems,setFilteredItems] = useState(items);

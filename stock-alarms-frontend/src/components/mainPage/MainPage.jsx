@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { getAllStockSymbols } from "../../api/stock/StockService";
-import Button from "../utils/button/Button";
 import ListItem from "../utils/list/ListItem";
-import StockSymbolsContainer from "./components/StockSymbolsContainer";
+import StockSymbolsContainer from "./components/stockSymbolsContainer/StockSymbolsContainer";
 import MessageBox from "../utils/messageBox/MessageBox";
-
+import StockInfoContainer from "./components/stockInfoContainer/StockInfoContainer";
 
 export default function MainPage({username,password}){
         const [message, setMessage] = useState("");
@@ -37,8 +36,11 @@ export default function MainPage({username,password}){
     },[])
     
 
-    return <div>
-        {showMessage && <MessageBox message={message} success={success} onClose={handleOnCloseMsgBox} />}
-        {listStockSymbols.length!=0 && <StockSymbolsContainer items={listStockSymbols} ></StockSymbolsContainer>}
-    </div>
+    return <div className="mainPageContainer">
+            {showMessage && <MessageBox message={message} success={success} onClose={handleOnCloseMsgBox} />}
+            {listStockSymbols.length!=0 && <StockSymbolsContainer items={listStockSymbols} ></StockSymbolsContainer>}
+            <div className="stockDataMainContainer">
+                <StockInfoContainer symbol="IBM" currentPrice="12"></StockInfoContainer>
+            </div>
+        </div>
 }

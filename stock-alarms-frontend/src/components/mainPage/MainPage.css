@@ -1,0 +1,7 @@
+.mainPageContainer{
+    display: flex;
+}
+.stockDataMainContainer{
+    padding: 0;
+    margin-left: 20px;
+}

@@ -1,0 +1,38 @@
+
+.stockInfoMainContainer{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+#stockInfoSymbolName, #stockInfoCurrentPriceName,#stockInfoSymbolValue,#stockInfoCurrentPriceValue{
+    margin: 0;
+    padding: 3px;
+}
+.stockInfo{
+    width: 300px;
+    margin: 0;
+    padding: 0;
+}
+.stockInfoNames{
+    display: flex;
+    justify-content: space-around;
+
+    margin: 0;
+    padding: 0;
+}
+.stockInfoValues{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    margin: 0;
+    padding: 0;
+    padding-right: 15px;
+}
+.buttonAddAlarm{
+    margin-left: 10px;
+    margin-top: 31px;
+    height: 30px;
+}
