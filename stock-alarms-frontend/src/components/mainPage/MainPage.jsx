@@ -228,7 +228,7 @@ export default function MainPage(){
 
     const updateStockDataContainerIfShown = ()=>{
         if(symbol && currentPrice){
-            console.log("stockContainerUpdated")
+            // console.log("stockContainerUpdated")
             //REQUEST for latest stock data only if the stock container is shown
             setAddClicked(false);
             getStockData(username,password,symbol)
