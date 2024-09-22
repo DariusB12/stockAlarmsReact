@@ -8,7 +8,7 @@ export default function Alarm({symbol,initialPrice,variance,target,active,handle
             <p className={variance.toString().startsWith("-") ? "alarmVarianceNegative" : "alarmVariancePositive"}>{variance}%</p>
             <p className={target.toString().startsWith("-") ? "alarmTargetNegative" : "alarmTargetPositive"}>{target}%</p>
             
-            <p className={active == "true" || "yes" ? "alarmActive" : "alarmNonActive"}>{active ? "yes":"no"}</p>
+            <p className={active ? "alarmActive" : "alarmNonActive"}>{active ? "yes":"no"}</p>
         </div>
         
         <div className="alarmContainerButtons">

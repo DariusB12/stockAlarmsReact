@@ -11,7 +11,7 @@ export default function EditAlarmBox({currentPrice,symbol,initialPrice,variance,
                         <p>InitialPrice:{initialPrice}</p>
                         <p className={variance.toString().startsWith("-") ? "alarmVarianceNegative" : "alarmVariancePositive"}>Variance:{variance}%</p>
                         <p className={target.toString().startsWith("-") ? "alarmTargetNegative" : "alarmTargetPositive"}>Target:{target}%</p>
-                        <p className={active == "true" || "yes" ? "alarmActive" : "alarmNonActive"}>Active:{active ? "yes":"no"}</p>
+                        <p className={active ? "alarmActive" : "alarmNonActive"}>Active:{active == "true" || active? "yes":"no"}</p>
                         </div>
 
                     <div className="bodyEditAlarmBox">
