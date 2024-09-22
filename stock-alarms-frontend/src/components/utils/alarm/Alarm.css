@@ -1,0 +1,48 @@
+
+
+.alarmContainer{
+    border: 1px solid black;
+    border-left: none;
+    border-right: none;
+    height: 30px;
+    margin: 3px 0px 3px 0px;
+    display: flex;
+    align-items: center;
+}
+.alarmContainerValues{
+    display: flex;
+    padding-left: 30px;
+    justify-content: space-around;
+    gap: 50px;
+}
+.alarmContainerButtons{
+    display: flex;
+    padding-right: 0;
+    
+    position: absolute;
+    right: 0;
+}
+
+.alarmContainerButtons button{
+    background-color: rgb(87, 87, 87);
+    border: none;
+    border-radius: 5px;
+    height: auto;
+    width: auto;
+    margin: 2px;
+    padding: 0;
+}
+.alarmContainerButtons button:hover{
+    background-color: rgb(53, 53, 53);
+}
+.alarmContainerButtons button img{
+    height: 20px;
+    width: 20px;
+}
+
+.alarmActive{
+    color: green;
+}
+.alarmNonActive{
+    color: rgb(166, 0, 0);
+}

@@ -1,17 +1,39 @@
 import { useState, useEffect } from "react";
 import { getAllStockSymbols, getStockData } from "../../api/stock/StockService";
+import { useLocation } from "react-router-dom";
+
 import ListItem from "../utils/list/ListItem";
 import StockSymbolsContainer from "./components/stockSymbolsContainer/StockSymbolsContainer";
 import MessageBox from "../utils/messageBox/MessageBox";
 import StockInfoContainer from "./components/stockInfoContainer/StockInfoContainer";
 import AddAlarmInput from "./components/addAlarmInput/AddAlarmInput";
+import AlarmsListContainer from "./components/alarmsListContainer/AlarmsListContainer";
+import Alarm from "../utils/alarm/Alarm";
 
-export default function MainPage({username="bordeanu96darius@gmail.com",password ="12ASas@"}){
+export default function MainPage(){
+    // when I navigate to this page useLocation extracts the properties from the state of the useNavigate call
+    const location = useLocation();
+    const { username, password } = location.state;
+
     const [message, setMessage] = useState("");
     const [success, setSuccess] = useState("");
     const [showMessage, setShowMessage] = useState(false);
     const [listStockSymbols,setListStockSymbols] = useState([]);
     const [addClicked,setAddClicked] = useState(false);
+    // const [listUsersAlarms,setListUsersAlarms] = useState([<p>No alarms created</p>]);
+    const listUsersAlarms = [
+        <Alarm symbol="IBM" initialPrice="12.33" variance="123" target="20" active="true"></Alarm>,
+        <Alarm symbol="IBM" initialPrice="12.334" variance="123" target="20" active="false"></Alarm>,        
+        <Alarm symbol="IBM" initialPrice="12.33" variance="123" target="20" active="true"></Alarm>,
+        <Alarm symbol="IBM" initialPrice="12.33" variance="123" target="20" active="true"></Alarm>,
+        <Alarm symbol="IBM" initialPrice="12.334" variance="123" target="20" active="false"></Alarm>,        
+        <Alarm symbol="IBM" initialPrice="12.33" variance="123" target="20" active="true"></Alarm>,
+        <Alarm symbol="IBM" initialPrice="12.33" variance="123" target="20" active="true"></Alarm>,
+        <Alarm symbol="IBM" initialPrice="12.334" variance="123" target="20" active="false"></Alarm>,        
+        <Alarm symbol="IBM" initialPrice="12.33" variance="123" target="20" active="true"></Alarm>
+    
+    
+    ]
 
     const [symbol,setSymbol] = useState(null);
     const [currentPrice,setCurrentPrice] = useState(null);
@@ -52,8 +74,6 @@ export default function MainPage({username="bordeanu96darius@gmail.com",password
                 setMessage("Error fetching symbols from server")
                 setShowMessage(true)
             })
-       
-        
     },[])
     
 
@@ -63,6 +83,7 @@ export default function MainPage({username="bordeanu96darius@gmail.com",password
             <div className="stockDataMainContainer">
                 {symbol && currentPrice && <StockInfoContainer symbol={symbol} currentPrice={currentPrice} onClickAdd={handleOnClickAdd}></StockInfoContainer>}
                 {addClicked && <AddAlarmInput symbol={symbol} currentPrice={currentPrice} onClickAdd={handleAddAlarmClickedAdd} onClickCancel={handleAddAlarmClickedCancel}></AddAlarmInput>}
+                <AlarmsListContainer items={listUsersAlarms}></AlarmsListContainer>
             </div>
         </div>
 }

@@ -6,11 +6,12 @@ export default function AddAlarmInput({symbol,currentPrice,onClickCancel,onClick
                 <p>{symbol}</p>
             </div>
             <div className="addAlarmCurrentPriceContainer">
-                <p>CurrentPrice:</p> 
+                <p>Price:</p> 
                 <p>{currentPrice}</p>
             </div>
                 
             <div className="inputTargetMain">
+                <p>Target:</p>
                 <input className="inputTarget" step="0.01" type="number"/>
                 <p>%</p>
             </div>

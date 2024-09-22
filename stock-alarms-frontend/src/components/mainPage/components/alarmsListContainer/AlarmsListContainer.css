@@ -1,0 +1,38 @@
+
+.alarmsListContainer{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 500px;
+    height: 306px;
+    position: absolute;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.alarmsListContainer::-webkit-scrollbar {
+    background: rgb(216, 216, 216); 
+    width: 10px;
+    border-radius: 10px;
+}
+.alarmsListContainer::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: rgb(172, 172, 172);
+}
+
+.listAlarms{
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.alarmsListContainerNames{
+    display: flex;
+    justify-content: space-around;
+    padding-right: 80px;
+}
+
+.alarmsListContainerNames p{
+    margin: 10px;    
+}

@@ -31,6 +31,7 @@ export default function LogInForm() {
         try {
             await login(userData);
             setShowLoading(false);
+            navigate("/mainPage",{state:{username:userData.email,password:userData.password}});
         } catch (err) {
             setShowLoading(false);
 

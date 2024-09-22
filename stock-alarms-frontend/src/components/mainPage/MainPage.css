@@ -2,6 +2,10 @@
     display: flex;
 }
 .stockDataMainContainer{
+    /**so that i can place he stock list container as absolute to this component*/
+    position: relative; 
     padding: 0;
     margin-left: 20px;
+    min-width: 500px;
+    max-height: 430px;
 }

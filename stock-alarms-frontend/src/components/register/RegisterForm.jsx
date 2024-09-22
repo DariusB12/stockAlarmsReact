@@ -42,8 +42,11 @@ export default function RegisterForm() {
             setShowLoading(false);
         } catch (err) {
             setShowLoading(false);
-
-            setMessage(err.message);
+            console.log(err);
+            // if(err.message)
+            //     setMessage(err.message);
+            // else
+                setMessage(err.message)
             setSuccess(false);
             setShowMessage(true);
         }
