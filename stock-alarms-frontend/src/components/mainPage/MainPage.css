@@ -9,3 +9,6 @@
     min-width: 500px;
     max-height: 430px;
 }
+.alarmsListNoAlarmCreated{
+    color: rgb(179, 179, 179);
+}

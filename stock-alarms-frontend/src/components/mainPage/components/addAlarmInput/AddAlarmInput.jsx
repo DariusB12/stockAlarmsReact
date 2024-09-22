@@ -1,5 +1,5 @@
 
-export default function AddAlarmInput({symbol,currentPrice,onClickCancel,onClickAdd}){
+export default function AddAlarmInput({symbol,currentPrice,onClickCancel,inputTargetRef,onClickAdd}){
     return <div className="addAlarmInputMain">
             <div className="addAlarmSymbolContainer">
                 <p>Symbol:</p> 
@@ -12,7 +12,7 @@ export default function AddAlarmInput({symbol,currentPrice,onClickCancel,onClick
                 
             <div className="inputTargetMain">
                 <p>Target:</p>
-                <input className="inputTarget" step="0.01" type="number"/>
+                <input className="inputTarget" ref={inputTargetRef} step="0.01" type="number"/>
                 <p>%</p>
             </div>
             <button id="addAalarmBtnCancel" className="addAlarmButton" onClick={onClickCancel}>Cancel</button>

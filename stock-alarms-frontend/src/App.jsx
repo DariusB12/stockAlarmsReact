@@ -9,6 +9,8 @@ import './components/mainPage/components/stockInfoContainer/StockInfoContainer.c
 import './components/mainPage/MainPage.css'
 import './components/mainPage/components/addAlarmInput/AddAlarmInput.css'
 import './components/mainPage/components/alarmsListContainer/AlarmsListContainer.css'
+import './components/utils/editAlarmBox/EditAlarmBox.css'
+import './components/utils/areYouSureBox/AreYouSureBox.css'
 
 
 import LogInForm from './components/logIn/LogInForm'

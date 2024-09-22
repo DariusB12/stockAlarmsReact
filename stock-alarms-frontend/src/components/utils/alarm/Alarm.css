@@ -18,7 +18,7 @@
 .alarmContainerButtons{
     display: flex;
     padding-right: 0;
-    
+
     position: absolute;
     right: 0;
 }
@@ -40,9 +40,9 @@
     width: 20px;
 }
 
-.alarmActive{
+.alarmActive,.alarmVariancePositive,.alarmTargetPositive{
     color: green;
 }
-.alarmNonActive{
+.alarmNonActive,.alarmVarianceNegative,.alarmTargetNegative{
     color: rgb(166, 0, 0);
 }

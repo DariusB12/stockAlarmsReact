@@ -33,6 +33,8 @@ export default function RegisterForm() {
 
     const handleSubmit = async (e) => {
         setShowLoading(true);
+        // browser by default submits the form data to the specified action URL
+        // deactivate this
         e.preventDefault();
         try {
             await register(userData);
@@ -42,11 +44,8 @@ export default function RegisterForm() {
             setShowLoading(false);
         } catch (err) {
             setShowLoading(false);
-            console.log(err);
-            // if(err.message)
-            //     setMessage(err.message);
-            // else
-                setMessage(err.message)
+            
+            setMessage(err.message)
             setSuccess(false);
             setShowMessage(true);
         }
